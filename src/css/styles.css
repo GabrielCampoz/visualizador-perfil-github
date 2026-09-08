@@ -141,6 +141,44 @@ main {
   box-shadow: var(--shadow-sm);
 }
 
+.profile-results {
+  width: 100%;
+  max-width: 44rem;
+  margin: 0 auto;
+}
+
+.profile-card {
+  display: flex;
+  align-items: center;
+  gap: clamp(1rem, 3vw, 2rem);
+  padding: var(--spacing-lg) 0;
+  text-align: left;
+}
+
+.profile-avatar {
+  width: clamp(4rem, 16vw, 8rem);
+  aspect-ratio: 1;
+  object-fit: cover;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.profile-info {
+  flex: 1;
+  min-width: 0;
+  overflow-wrap: anywhere;
+}
+
+.profile-info h2 {
+  margin-bottom: var(--spacing-xs);
+  font-size: clamp(1.125rem, 2.5vw, 1.5rem);
+}
+
+.profile-info p {
+  color: var(--muted-foreground);
+  line-height: 1.6;
+}
+
 .container .profile-results.hide {
   display: none;
 }
