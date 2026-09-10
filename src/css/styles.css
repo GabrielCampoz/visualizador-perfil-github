@@ -182,3 +182,26 @@ main {
 .container .profile-results.hide {
   display: none;
 }
+
+.profile-counter {
+  display: flex;
+  gap: clamp(2rem, 10vw, 6rem);
+  justify-content: center;
+  margin: var(--spacing-xl) 0 var(--spacing-2xl);
+}
+
+.profile-counter > div {
+  min-width: 6rem;
+}
+
+.profile-counter h4 {
+  font-weight: normal;
+  font-size: 0.75rem;
+  margin-bottom: 8px;
+  text-transform: uppercase;
+}
+
+.profile-counter span {
+  font-size: 2rem;
+  font-weight: bold;
+}
