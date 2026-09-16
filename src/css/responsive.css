@@ -11,9 +11,6 @@
     font-size: var(--font-xl);
   }
   
-  .repositories ul {
-    grid-template-columns: repeat(2, 1fr);
-  }
 }
 
 /* Tablet portrait */
@@ -27,9 +24,6 @@
     max-width: 100%;
   }
   
-  .repositories ul { 
-    grid-template-columns: 1fr; 
-  }
   
   .container .profile-data .info { 
     flex-direction: column; 
@@ -87,13 +81,6 @@
     gap: var(--spacing-lg); 
   }
   
-  .repositories ul li a h4 {
-    font-size: var(--font-xs);
-  }
-  
-  .repositories ul li a i {
-    font-size: 0.65rem;
-  }
 }
 
 /* Mobile pequeno */

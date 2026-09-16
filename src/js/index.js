@@ -1,10 +1,11 @@
-import { getGitHubUser } from './github-api.js';
+import { getGitHubUser, getGitHubRepos } from './github-api.js';
 import {
     clearProfile,
     getSearchTerm,
     hideLoading,
     onSearch,
     renderProfile,
+    renderRepositories,
     showLoading,
 } from './profile-view.js';
 
@@ -20,8 +21,12 @@ async function searchProfile() {
     showLoading();
 
     try {
-        const user = await getGitHubUser(userName);
+        const [user, repositories] = await Promise.all([
+            getGitHubUser(userName),
+            getGitHubRepos(userName),
+        ]);
         renderProfile(user);
+        renderRepositories(repositories);
     } catch (error) {
         console.error('Erro ao buscar o perfil do usuário:', error);
         alert(error.message);

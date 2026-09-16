@@ -143,7 +143,7 @@ main {
 
 .profile-results {
   width: 100%;
-  max-width: 44rem;
+  max-width: 58rem;
   margin: 0 auto;
 }
 
@@ -204,4 +204,86 @@ main {
 .profile-counter span {
   font-size: 2rem;
   font-weight: bold;
+}
+
+.repositories {
+  padding-top: var(--spacing-lg);
+  text-align: left;
+}
+
+.repositories h3 {
+  margin-bottom: var(--spacing-xl);
+  font-size: var(--font-xl);
+  text-align: center;
+}
+
+.repositories p {
+  color: var(--muted-foreground);
+}
+
+.repository-list {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: var(--spacing-xl);
+  list-style: none;
+  padding: 0;
+}
+
+.repository-card {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  padding: var(--spacing-lg) var(--spacing-md);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  color: var(--primary);
+  overflow-wrap: anywhere;
+  text-decoration: none;
+  background: var(--card);
+  box-shadow: var(--shadow-sm);
+}
+
+.repository-card h4 {
+  font-size: var(--font-md);
+  line-height: 1.5;
+  margin-bottom: var(--spacing-md);
+}
+
+.repository-details {
+  display: grid;
+  gap: var(--spacing-sm);
+  margin-top: auto;
+}
+
+.repository-details p {
+  margin: 0;
+  padding: 0.25rem var(--spacing-xs);
+  border-radius: 3px;
+  background: #ededed;
+  color: #626262;
+  font-size: var(--font-sm);
+  line-height: 1.4;
+}
+
+.repository-card:hover {
+  border-color: var(--ring);
+  box-shadow: var(--shadow-md);
+}
+
+.repository-card:focus-visible {
+  outline: 2px solid var(--ring);
+  outline-offset: 2px;
+}
+
+@media (max-width: 900px) {
+  .repository-list {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: var(--spacing-lg);
+  }
+}
+
+@media (max-width: 600px) {
+  .repository-list {
+    grid-template-columns: minmax(0, 1fr);
+  }
 }

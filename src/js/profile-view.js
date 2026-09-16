@@ -54,6 +54,64 @@ export function renderProfile(user) {
     profileResults.replaceChildren(profileCard, profileCounter);
 }
 
+export function renderRepositories(repositories) {
+    const section = document.createElement('section');
+    section.className = 'repositories';
+
+    const title = document.createElement('h3');
+    title.textContent = 'Repositórios';
+    section.append(title);
+
+    if (repositories.length === 0) {
+        const message = document.createElement('p');
+        message.textContent = 'Nenhum repositório público encontrado.';
+        section.append(message);
+    } else {
+        const list = document.createElement('ul');
+        list.className = 'repository-list';
+
+        repositories.forEach((repository) => {
+            const item = document.createElement('li');
+            const link = document.createElement('a');
+            link.className = 'repository-card';
+            link.href = repository.html_url;
+            link.target = '_blank';
+            link.rel = 'noopener noreferrer';
+
+            const name = document.createElement('h4');
+            name.textContent = repository.name;
+
+            const details = document.createElement('div');
+            details.className = 'repository-details';
+
+            const stats = [
+                ['⭐', 'Stars', repository.stargazers_count ?? 0],
+                ['⑂', 'Forks', repository.forks_count ?? 0],
+                ['👀', 'Watchers', repository.watchers_count ?? 0],
+                ['💻', 'Language', repository.language || 'Não informada'],
+            ];
+
+            stats.forEach(([icon, label, value]) => {
+                const row = document.createElement('p');
+                const symbol = document.createElement('span');
+                symbol.textContent = icon;
+                symbol.setAttribute('aria-hidden', 'true');
+                row.append(symbol, ` ${label}: ${value}`);
+                details.append(row);
+            });
+
+            link.append(name, details);
+
+            item.append(link);
+            list.append(item);
+        });
+
+        section.append(list);
+    }
+
+    profileResults.append(section);
+}
+
 function createCounter(className, label, value) {
     const counter = document.createElement('div');
     counter.className = className;
